@@ -18,9 +18,9 @@ app.config_from_object('django.conf:settings')
 #     dictConfig(settings.LOGGING)
 
 
-@app.task(name='fuckin-test')
-def test1():
-    print('test!')
+@app.task(name='celery_test_task')
+def celery_test_task():
+    print('this is a celery task')
 
 
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
