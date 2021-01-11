@@ -77,5 +77,5 @@ class EmailRecipientsForm(forms.ModelForm):
         '''
         all_users = User.objects.all()
         for user in all_users:
-            recipient, created = EmailRecipient.objects.get_or_create(user=recipient_user, email_address=recipient_user.email)
+            recipient, created = EmailRecipient.objects.get_or_create(user=user, email_address=user.email)
             email.recipients.add(recipient)
