@@ -16,7 +16,8 @@ jobs:
         python-version: [3.7, 3.8, 3.9]
 
     steps:
-    - name: Echo site details
+    - uses: actions/checkout@v2
+    - name: ENV
       env:
-        secret: ${{ variables.SECRET_KEY }}
-      run: echo $secret
+        secret: ${{ secrets.SECRET_KEY }}
+      run: env
