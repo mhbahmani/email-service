@@ -19,5 +19,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: ENV
       env:
-        secret: ${{ secrets.SECRET_KEY }}
+        secret: ${{ SECRET_KEY }}
       run: env
