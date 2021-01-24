@@ -7,8 +7,8 @@ RUN apt update && \
 
 ENV PIP_NO_CACHE_DIR 1
 
-ADD ./requirements.txt ./
+ADD ../requirements.txt ./
 RUN pip install -r ./requirements.txt
 
-ADD ./ ./
+ADD ../ ./
 RUN ./manage.py collectstatic --noinput
