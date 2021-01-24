@@ -4,3 +4,4 @@ python-decouple
 celery
 redis
 martor
+gunicorn

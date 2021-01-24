@@ -12,8 +12,12 @@ services:
       - backend_web
 
   backend_web:
-    build: .
+    build:
+      dockerfile: deploy/Dockerfile
+      context: ../
+    env_file: ../emailService/.env
     volumes: 
       - ../static/:/root/email-service/static
     ports:
       - 8000:8000
+    command: bash -c "gunicorn --workers=4 --bind 0.0.0.0:8000 emailService.wsgi:application"
