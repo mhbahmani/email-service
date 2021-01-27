@@ -8,6 +8,7 @@ services:
       - 80:80
     volumes:
       - ../static/:/static/
+      - ./nginx/emailService.conf:/etc/nginx/conf.d/default.conf
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/index.html:/usr/share/nginx/html/index.html
     depends_on: 
