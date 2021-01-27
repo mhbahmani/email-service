@@ -3,6 +3,7 @@ version: '3'
 services:
   backend_nginx:
     image: nginx
+    container_name: nginx
     ports:
       - 80:80
     volumes:
@@ -15,6 +16,7 @@ services:
     build:
       dockerfile: deploy/Dockerfile
       context: ../
+    container_name: web
     env_file: ../emailService/.env
     volumes: 
       - ../static/:/root/email-service/static
