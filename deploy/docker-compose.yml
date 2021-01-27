@@ -7,7 +7,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ../static/:/static
+      - ../static/:/static/
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/index.html:/usr/share/nginx/html/index.html
     depends_on: 
@@ -20,7 +20,7 @@ services:
     container_name: web
     env_file: ../emailService/.env
     volumes: 
-      - ../static/:/root/email-service/static
+      - ../static/:/app/static/
     ports:
       - 8000:8000
     command: >
