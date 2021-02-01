@@ -27,6 +27,8 @@ services:
     command: >
       bash -c "
         ./manage.py collectstatic --noinput;
+        python manage.py makemigrations;                                    │
+        python manage.py migrate;
         gunicorn --workers=4 --bind 0.0.0.0:8000 emailService.wsgi:application;"
   
   redis:
