@@ -36,3 +36,12 @@ services:
       - 6379:6379
     volumes:
       - /data:/data
+
+  celery:
+    build:
+      dockerfile: deploy/Dockerfile
+      context: ../  
+    container_name: celery
+    command: "celery -A emailService worker -l info"
+    depends_on: 
+      - redis
