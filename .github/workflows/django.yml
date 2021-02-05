@@ -38,5 +38,7 @@ jobs:
         EMAIL_USE_TLS: ${{ secrets.EMAIL_USE_TLS }}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         DEBUG: ${{ secrets.DEBUG }}
+        CELERY_RESULT_BACKEND: ${{ secrets.CELERY_RESULT_BACKEND }}
+        BROKER_URL: ${{ secrets.BROKER_URL }}
       run: |
         python manage.py test
