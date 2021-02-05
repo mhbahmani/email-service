@@ -67,8 +67,8 @@ class EmailRecipientsForm(forms.ModelForm):
             '''
                 EmailRecipient User relation
             '''
-            user = User.objects.get(email=email_address)
-            recipient, created = EmailRecipient.objects.get_or_create(email_address=email_address, user=user)
+            user, _ = User.objects.get_or_create(email=email_address)
+            recipient, _ = EmailRecipient.objects.get_or_create(email_address=email_address, user=user)
             email.recipients.add(recipient)
         
     def set_all_users_as_recipient(self, email: Email) -> None:
