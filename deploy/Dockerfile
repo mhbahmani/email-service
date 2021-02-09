@@ -2,8 +2,17 @@ FROM python:latest
 
 WORKDIR /app/
 
-RUN apt update && \
-    apt install -y vim curl
+# install some basics
+RUN apk update \
+    && apk add --no-cache vim curl
+
+# install psycopg2
+RUN apk update \
+    && apk add --virtual build-deps gcc python3-dev musl-dev \
+    && apk add postgresql-dev \
+    && pip install psycopg2 \
+    && pip install --upgrade incremental
+
 
 ENV PIP_NO_CACHE_DIR 1
 
