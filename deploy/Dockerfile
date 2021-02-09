@@ -4,7 +4,7 @@ WORKDIR /app/
 
 # install some basics
 RUN apt update \
-    && apt install -y vim curl
+    && apt install -y vim curl netcat
 
 # install psycopg2 dependencies
 RUN apt update \
