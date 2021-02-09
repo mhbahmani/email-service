@@ -28,6 +28,8 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
+PRODUCTION = config('PRODUCTION')
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -82,6 +84,8 @@ WSGI_APPLICATION = 'emailService.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+if 
 
 DATABASES = {
     'default': {
