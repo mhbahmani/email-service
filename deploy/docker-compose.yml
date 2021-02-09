@@ -30,7 +30,9 @@ services:
         python manage.py makemigrations;                                    │
         python manage.py migrate;
         gunicorn --workers=4 --bind 0.0.0.0:8000 emailService.wsgi:application;"
-  
+    depends_on:
+      - postgres
+
   redis:
     image: redis
     container_name: redis
