@@ -8,8 +8,7 @@ RUN apt update \
 
 # install psycopg2 dependencies
 RUN apt update \
-    && apt install -y build-deps gcc python3-dev musl-dev \
-    && apt install -y postgresql-dev
+    && apt install -y libpq-dev postgresql postgresql-contrib
 
 ENV PIP_NO_CACHE_DIR 1
 
