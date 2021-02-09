@@ -4,12 +4,12 @@ WORKDIR /app/
 
 # install some basics
 RUN apt update \
-    && apt install vim curl
+    && apt install -y vim curl
 
 # install psycopg2 dependencies
 RUN apt update \
-    && apt install build-deps gcc python3-dev musl-dev \
-    && apt install postgresql-dev \
+    && apt install -y build-deps gcc python3-dev musl-dev \
+    && apt install -y postgresql-dev
 
 ENV PIP_NO_CACHE_DIR 1
 
