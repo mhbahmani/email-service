@@ -27,8 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG')
-PRODUCTION = config('PRODUCTION')
+DEBUG = config('DEBUG', True)
+PRODUCTION = config('PRODUCTION', False)
 
 
 ALLOWED_HOSTS = ['*']
@@ -89,11 +89,11 @@ if PRODUCTION:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': config('DB_NAME'),
-            'USER': config('DB_USER'),
-            'PASSWORD': config('DB_PASSWORD'),
-            'HOST': config('DB_HOST'),
-            'PORT': config('DB_PORT'),
+            'NAME': config('DB_NAME', 'DB_NAME'),
+            'USER': config('DB_USER', 'DB_USER'),
+            'PASSWORD': config('DB_PASSWORD', 'DB_PASSWORD'),
+            'HOST': config('DB_HOST', 'DB_HOST'),
+            'PORT': config('DB_PORT', ''),
         }
     }
 else:
@@ -122,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+print(PRODUCTION)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -146,17 +146,17 @@ STATIC_ROOT = BASE_DIR / 'static'
 
 
 # CELERY STUFF
-BROKER_URL = config('BROKER_URL')
-CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND')
+BROKER_URL = config('BROKER_URL', 'redis://localhost:6379')
+CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND', 'redis://localhost:6379')
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
 
 
-EMAIL_BACKEND = config("EMAIL_BACKEND")
-EMAIL_USE_TLS = config('EMAIL_USE_TLS')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_BACKEND = config('EMAIL_BACKEND', 'EMAIL')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', 'TLS')
+EMAIL_HOST = config('EMAIL_HOST', 'EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', 'EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', 'EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT', 'EMAIL_PORT')
