@@ -3,16 +3,13 @@ FROM python:latest
 WORKDIR /app/
 
 # install some basics
-RUN apk update \
-    && apk add --no-cache vim curl
+RUN apt update \
+    && apt install vim curl
 
-# install psycopg2
-RUN apk update \
-    && apk add --virtual build-deps gcc python3-dev musl-dev \
-    && apk add postgresql-dev \
-    && pip install psycopg2 \
-    && pip install --upgrade incremental
-
+# install psycopg2 dependencies
+RUN apt update \
+    && apt install build-deps gcc python3-dev musl-dev \
+    && apt install postgresql-dev \
 
 ENV PIP_NO_CACHE_DIR 1
 
