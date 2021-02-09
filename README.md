@@ -4,7 +4,7 @@ Simple email service in django. You can create HTML templates and use them in mu
 ## Hot to Setup
 - Set .env file in emailService directory like .env.example file.
 - Make virtualenv and install the dependencies from requirements.txt.
-- Run the django server by `python manage.py runserver` and go through steps in api/admin.
+- Run `docker-compose -f deploy/docker-compose.yml up -d --build` and go through steps in api/admin.
 - Enjoy!
 
 ### ToDo:
