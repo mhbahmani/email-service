@@ -22,6 +22,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('martor/', include('martor.urls')),
+    path('', include('django_prometheus.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

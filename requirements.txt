@@ -6,3 +6,4 @@ celery
 redis
 martor
 gunicorn
+django-prometheus
