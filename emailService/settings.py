@@ -23,14 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-PROMETHEUS_EXPORT_MIGRATIONS = False
+PROMETHEUS_EXPORT_MIGRATIONS = config('PROMETHEUS_EXPORT_MIGRATIONS', False)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', True)
-PRODUCTION = config('PRODUCTION', False)
+DEBUG = config('DEBUG', True) == "True"
+PRODUCTION = config('PRODUCTION', False) == "True"
 
 
 ALLOWED_HOSTS = ['*']
