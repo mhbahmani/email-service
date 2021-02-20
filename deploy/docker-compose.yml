@@ -60,9 +60,9 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB='emailService'
-      - POSTGRES_USER='emailServiceUser'
-      - POSTGRES_PASSWORD='password'
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
 
   prometheus:
     image: prom/prometheus:v2.14.0
