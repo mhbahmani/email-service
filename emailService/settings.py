@@ -99,7 +99,7 @@ if PRODUCTION:
             'USER': config('DB_USER', 'DB_USER'),
             'PASSWORD': config('DB_PASSWORD', 'DB_PASSWORD'),
             'HOST': config('DB_HOST', 'DB_HOST'),
-            'PORT': config('DB_PORT', ''),
+            'PORT': config('DB_PORT', 5432),
         }
     }
 else:
