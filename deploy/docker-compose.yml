@@ -19,7 +19,8 @@ services:
       dockerfile: deploy/Dockerfile
       context: ../
     container_name: web
-    env_file: ../emailService/.env
+    env_file: 
+      - ../emailService/.env
     volumes: 
       - ../static/:/app/static/
     ports:
@@ -54,7 +55,8 @@ services:
     image: postgres:latest
     container_name: postgres
     restart: always
-    env_file: ../emailService/.env
+    env_file: 
+      - ../emailService/.env
     ports:
       - 5432:5432
     volumes:
