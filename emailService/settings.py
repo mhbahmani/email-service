@@ -29,8 +29,8 @@ PROMETHEUS_EXPORT_MIGRATIONS = config('PROMETHEUS_EXPORT_MIGRATIONS', False)
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', True) == "True"
-PRODUCTION = config('PRODUCTION', False) == "True"
+DEBUG = config('DEBUG', True, cast=bool)
+PRODUCTION = config('PRODUCTION', False, cast=bool)
 
 
 ALLOWED_HOSTS = ['*']
