@@ -76,7 +76,7 @@ services:
     volumes:
     - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
     depends_on:
-      - web
+      - backend_web
 
 volumes:
   pgdata:
