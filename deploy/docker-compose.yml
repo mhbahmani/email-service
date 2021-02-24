@@ -56,7 +56,7 @@ services:
     container_name: postgres
     restart: always
     env_file: 
-      - ../emailService/.env
+      - .env_deploy
     ports:
       - 5432:5432
     volumes:
