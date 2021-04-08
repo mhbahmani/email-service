@@ -1,0 +1,13 @@
+groups:
+
+- name: monitor_web_service
+  rules:
+  - alert: WebServiceDown
+    expr: web_up == 0
+    for: 10s
+    labels:
+      severity: critical
+    annotations:
+      summary: "web is down"
+      description: "we're fu**ed up"
+
